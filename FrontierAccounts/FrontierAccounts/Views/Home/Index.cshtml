@@ -1,0 +1,36 @@
+﻿@model List<Account>
+@{
+    ViewData["Title"] = "Accounts Coding Test";
+}
+
+<div class="content-title-container">
+    <h2>Accounts</h2>
+</div>
+<section class="grid" id="account-grid">
+    <section class="account-column grid" id="active-account-column">
+        <div class="account-container-title" id="active-account-container-title">
+            <h3>Active</h3>
+        </div>
+        <div class="account-container active-account">
+            @await Html.PartialAsync("CustomerInfo", Model.Where(m => m.AccountStatusId == AccountStatuses.Active))
+
+        </div>
+    </section>
+    <section class="account-column grid" id="overdue-account-column">
+        <div class="account-container-title" id="overdue-account-container-title">
+            <h3>Overdue</h3>
+        </div>
+        <div class="account-container overdue-account">
+            @await Html.PartialAsync("CustomerInfo", Model.Where(m => m.AccountStatusId == AccountStatuses.Overdue))
+        </div>
+    </section>
+    <div class="account-column grid" id="inactive-account-column">
+        <div class="account-container-title" id="inactive-account-container-title">
+            <h3>Inactive</h3>
+        </div>
+        <div class="account-container inactive-account">
+            @await Html.PartialAsync("CustomerInfo", Model.Where(m => m.AccountStatusId == AccountStatuses.Inactive))
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FrontierAccounts.Models.Account>
+
+<ul class="account-data-list">
+    @foreach (var account in Model)
+    {
+        <li><label>@Html.LabelFor(m => account.FullName):</label>@Html.DisplayFor(m => account.LastName), @Html.DisplayFor(m => account.FirstName)</li>
+        <li><label>@Html.LabelFor(m => account.Email):</label>@Html.DisplayFor(m => account.Email)</li>
+        <li><label>@Html.LabelFor(m => account.PhoneNumber):</label>@Html.DisplayFor(m => account.PhoneNumber)</li>
+        <li><label>@Html.LabelFor(m => account.AmountDue):</label>@Html.DisplayFor(m => account.AmountDue)</li>
+        @if (account.PaymentDueDate != null)
+        {
+            <li><label>@Html.LabelFor(m => account.PaymentDueDate):</label>@Html.DisplayFor(m => account.PaymentDueDate)</li>
+        }
+    }
+</ul>

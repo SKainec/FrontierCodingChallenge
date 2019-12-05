@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <article class="grid">
+        <header class="grid">
+            <div class="title-container">
+                <h1>Coding Test</h1>
+            </div>
+        </header>
+        <main class="content grid" id="home-content">
+            @RenderBody()
+        </main>
+        <footer class="grid">
+            <p class="copy">&copy;
+            <script>document.write(new Date().getFullYear())</script></p>
+        </footer>
+    </article>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
